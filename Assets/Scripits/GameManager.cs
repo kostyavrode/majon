@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     private int score;
     private int money;
     private int lastLoadedLevel;
+    private TileManager lastLoadedTileManager;
     private void Awake()
     {
         instance = this;
@@ -48,14 +49,23 @@ public class GameManager : MonoBehaviour
         
         if (level==0)
         {
-            Instantiate(tileManager[lastLoadedLevel - 1]);
+            Destroy(lastLoadedTileManager.gameObject);
+            lastLoadedTileManager=Instantiate(tileManager[lastLoadedLevel - 1]);
         }
         else
         {
-            Instantiate(tileManager[level - 1]);
+            lastLoadedTileManager = Instantiate(tileManager[level - 1]);
             lastLoadedLevel = level;
         }
         
+    }
+    public void StartNextLevel()
+    {
+        Destroy(lastLoadedTileManager.gameObject);
+        
+        lastLoadedTileManager = Instantiate(tileManager[lastLoadedLevel]);
+        lastLoadedLevel += 1;
+        Time.timeScale = 1f;
     }
     public void PauseGame()
     {
