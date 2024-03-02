@@ -10,12 +10,14 @@ public class GameManager : MonoBehaviour
     public static Action onGameStarted;
     private bool isGameStarted;
     private float currentTimeScale;
-    private int score;
+    private float score;
     private int money;
     private int lastLoadedLevel;
+    private int timeForRound;
     private TileManager lastLoadedTileManager;
     private void Awake()
     {
+        timeForRound = 30+PlayerPrefs.GetInt("TimeBonus");
         instance = this;
         currentTimeScale = Time.timeScale;
         if (PlayerPrefs.HasKey("Money"))
@@ -33,20 +35,32 @@ public class GameManager : MonoBehaviour
     {
         UIManager.instance.ShowMoney(money.ToString());
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (isGameStarted)
         {
-            score += 1;
-            UIManager.instance.ShowScore(score.ToString());
+            
+            score += Time.fixedDeltaTime;
+            if (score>=1)
+            {
+                timeForRound -= 1;
+                score = 0;
+                UIManager.instance.ShowScore(timeForRound.ToString());
+                if (timeForRound==0)
+                {
+                    EndGame(false);
+                }
+            }
+            
         }
     }
     public void StartGame(int level=0)
     {
+        timeForRound = 30 + PlayerPrefs.GetInt("TimeBonus");
         isGameStarted = true;
         onGameStarted?.Invoke();
         Time.timeScale = 1f;
-        
+        UIManager.instance.ShowScore(timeForRound.ToString());
         if (level==0)
         {
             Destroy(lastLoadedTileManager.gameObject);
@@ -95,15 +109,15 @@ public class GameManager : MonoBehaviour
             else
             {
                 UIManager.instance.ShowBestScore(score.ToString());
-                PlayerPrefs.SetInt("BestScore", score);
-                PlayerPrefs.Save();
+                //PlayerPrefs.SetInt("BestScore", score);
+                //PlayerPrefs.Save();
             }
         }
         else
         {
             UIManager.instance.ShowBestScore(score.ToString());
-            PlayerPrefs.SetInt("BestScore", score);
-            PlayerPrefs.Save();
+            //PlayerPrefs.SetInt("BestScore", score);
+            //PlayerPrefs.Save();
         }
     }
     public bool IsGameStarted()
