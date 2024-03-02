@@ -6334,6 +6334,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 391424143}
     m_Modifications:
+    - target: {fileID: 77181292362560260, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
+      propertyPath: m_text
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 378080193075112078, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
       propertyPath: m_Name
       value: ChooseLevelButton (4)
@@ -6430,6 +6434,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 943610408}
+    - target: {fileID: 2112221875060892606, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6450,7 +6458,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 77181292362560260, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
       propertyPath: m_text
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 378080193075112078, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
       propertyPath: m_Name
@@ -6550,7 +6558,7 @@ PrefabInstance:
       objectReference: {fileID: 943610408}
     - target: {fileID: 2112221875060892606, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8254,7 +8262,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 77181292362560260, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
       propertyPath: m_text
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 378080193075112078, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
       propertyPath: m_Name
@@ -8354,7 +8362,7 @@ PrefabInstance:
       objectReference: {fileID: 943610408}
     - target: {fileID: 2112221875060892606, guid: e3a553e0c267d274cbe25e88f9e52a4a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
