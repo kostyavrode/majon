@@ -57,11 +57,11 @@ public class GameManager : MonoBehaviour
         isGameStarted = true;
         Time.timeScale = currentTimeScale;
     }
-    public void EndGame()
+    public void EndGame(bool isWin = false)
     {
         isGameStarted = false;
         CheckBestScore();
-        UIManager.instance.EndGame();
+        UIManager.instance.EndGame(isWin);
     }
     private void CheckBestScore()
     {

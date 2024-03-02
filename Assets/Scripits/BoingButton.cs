@@ -47,7 +47,7 @@ using Button = UnityEngine.UI.Button;
 		public void DownScaleTile()
 		{
 			//StopAllCoroutines();
-			if (_isWork)
+			if (_isWork && gameObject.activeSelf)
 				StartCoroutine(_Scale(transform, _initialScale, 0, timeAnimation / 2, animationCurve));
 
 

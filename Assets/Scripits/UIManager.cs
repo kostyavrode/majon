@@ -111,7 +111,7 @@ public class UIManager : MonoBehaviour
     }
     public void ShowBestScore(string bestScore)
     {
-        bestScoreBar.text = bestScore;
+        //bestScoreBar.text = bestScore;
     }
     public void ShowPrivacy(string url)
     {

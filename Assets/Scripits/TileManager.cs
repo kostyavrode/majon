@@ -6,6 +6,7 @@ using System;
 public class TileManager : MonoBehaviour
 {
     public static Action<Tile> onTileSelected;
+    public int levelNumber;
     [SerializeField] private Tile tilePrefab;
     [SerializeField] private Tile[] selectedTiles = new Tile[2];
     [SerializeField] private Tile[] allTiles;
@@ -110,7 +111,13 @@ public class TileManager : MonoBehaviour
     private void LevelCompleted()
     {
         Debug.Log("level completed");
-        GameManager.instance.EndGame();
+        if (!PlayerPrefs.HasKey("LevelDone" + levelNumber))
+        {
+            PlayerPrefs.SetString("LevelDone" + levelNumber, "true");
+            PlayerPrefs.SetInt("Money", PlayerPrefs.GetInt("Money") + 3);
+            PlayerPrefs.Save();
+        }
+        GameManager.instance.EndGame(true);
     }
     private IEnumerator WaitForUnSelectTile(Tile tile)
     {
