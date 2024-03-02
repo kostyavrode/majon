@@ -75,8 +75,9 @@ public class GameManager : MonoBehaviour
     }
     public void StartNextLevel()
     {
+        timeForRound = 30 + PlayerPrefs.GetInt("TimeBonus");
         Destroy(lastLoadedTileManager.gameObject);
-        
+        isGameStarted = true;
         lastLoadedTileManager = Instantiate(tileManager[lastLoadedLevel]);
         lastLoadedLevel += 1;
         Time.timeScale = 1f;
