@@ -97,13 +97,13 @@ public class TileManager : MonoBehaviour
         {
             ClearArray();
         }
-        isAllTilesOpened = true;
+        isAllTilesOpened = false;
         foreach(Tile tile in allTiles)
         {
-            if (isAllTilesOpened)
-            isAllTilesOpened = tile.isCanInteract;
+            if (!isAllTilesOpened)
+            isAllTilesOpened = tile.gameObject.activeSelf;
         }
-        if (isAllTilesOpened)
+        if (!isAllTilesOpened)
         {
             LevelCompleted();
         }

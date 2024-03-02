@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private float currentTimeScale;
     private int score;
     private int money;
-
+    private int lastLoadedLevel;
     private void Awake()
     {
         instance = this;
@@ -40,12 +40,22 @@ public class GameManager : MonoBehaviour
             UIManager.instance.ShowScore(score.ToString());
         }
     }
-    public void StartGame(int level)
+    public void StartGame(int level=0)
     {
         isGameStarted = true;
         onGameStarted?.Invoke();
         Time.timeScale = 1f;
-        Instantiate(tileManager[level-1]);
+        
+        if (level==0)
+        {
+            Instantiate(tileManager[lastLoadedLevel - 1]);
+        }
+        else
+        {
+            Instantiate(tileManager[level - 1]);
+            lastLoadedLevel = level;
+        }
+        
     }
     public void PauseGame()
     {
